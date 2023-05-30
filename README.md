@@ -156,7 +156,7 @@
     }
     ```
 
-## Azure blob storage 를 사용한 Vault autobackup
+# Azure blob storage 를 사용한 Vault autobackup
 
 1. Vault Server에 접속하여 root token을 사용해 Vault에 login합니다.
 
