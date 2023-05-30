@@ -1,0 +1,1 @@
+# sldt-azure-test-architecture
