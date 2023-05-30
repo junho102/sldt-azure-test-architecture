@@ -177,62 +177,10 @@
       azure_blob_environment=AzureCloud
     ```
 
-    This script performs the following:
-
-    - Enable the Azure auth method at `azure`
-    - Configure the Azure auth method
-    - Create a role named `dev-role` with `default` policy
-    - Finally, log into Vault using as `dev-role` to obtain a Vault client token
-
-1. Execute the script
-
-    ```plaintext
-    $ /tmp/azure_auth.sh
-    ...
-    Key                               Value
-    ---                               -----
-    token                             s.xYqTKUSivsKiwNwXv6wz9LUJ
-    token_accessor                    0dua5lTuYkAyQakJiy0oKJW5
-    token_duration                    768h
-    token_renewable                   true
-    token_policies                    ["default"]
-    identity_policies                 []
-    policies                          ["default"]
-    token_meta_resource_group_name    learn-vault-rg
-    token_meta_role                   dev-role
-    token_meta_subscription_id        YOUR-AZURE-SUBSCRIPTION-ID
-    token_meta_vm_name                azure-auth-demo-vm
-    ```
-
-    A valid service token is generated.
-
-    ```plaintext
-    $ vault token lookup s.xYqTKUSivsKiwNwXv6wz9LUJ
-
-    Key                 Value
-    ---                 -----
-    accessor            0dua5lTuYkAyQakJiy0oKJW5
-    creation_time       1548279674
-    creation_ttl        768h
-    display_name        azure-cc47203d-6c51-4498-9c3d-5e2874eca6fb
-    entity_id           7009136d-2eee-0414-61f9-e705a9f299ef
-    expire_time         2019-02-24T21:41:14.231599224Z
-    explicit_max_ttl    0s
-    id                  s.xYqTKUSivsKiwNwXv6wz9LUJ
-    issue_time          2019-01-23T21:41:14.231598924Z
-    meta                map[resource_group_name:learn-vault-rg role:dev-role subscription_id:YOUR-AZURE-SUBSCRIPTION-ID vm_name:azure-auth-demo-vm]
-    num_uses            0
-    orphan              true
-    path                auth/azure/login
-    policies            [default]
-    renewable           true
-    ttl                 767h59m48s
-    type                service
-    ```
 
 ## Clean up
 
-Run `terraform destroy` when you are done exploring:
+실습을 마쳤다면 destroy 명령어를 통해 해당 리소스들을 삭제합니다.
 
 ```plaintext
 $ terraform destroy -auto-approve
